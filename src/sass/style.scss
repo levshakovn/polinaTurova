@@ -1,0 +1,138 @@
+$bg-color: #d7fbfd;
+$dark-color: #0082a1;
+* {
+    font-family: 'Quicksand', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-color: $bg-color;
+}
+.container {
+    max-width: 1440px;
+    padding: 30px 100px;
+    margin: 0 auto;
+}
+button {
+    width: 310px;
+    height: 50px;
+    border-radius: 10px;
+    background-color: $bg-color;
+    border: none;
+    font-size: 2em;
+    font-weight: 500;
+    &:hover {
+        background-color: $dark-color;
+        color: #fff;
+        cursor: pointer;
+    }
+}
+ul li {
+    list-style-type: none;
+}
+nav ul{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.main {
+    min-height: 600px;
+    .wrapper_name_photo {
+        margin-top: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .name {
+            text-align: right;
+            margin-right: 10%;
+            h1 {
+                font-size: 4em;
+                font-weight: 500;
+                color: #000000;
+            }
+            a {
+                text-decoration: none;
+                font-size: 1.8em;
+                font-weight: 300;
+                color: #000000;
+            }
+        }
+        .photo_logos {
+            ul {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                width: 300px;
+                li a img{
+                    width: 50px;
+                    height: 50px;
+                    opacity: .5;
+                }
+            }
+        }
+    }
+    .download {
+        margin-top: 120px;
+        button {
+            text-transform: uppercase;
+            font-size: 1.5em;
+            font-weight: 500;
+            text-align: left;
+            text-align: center;
+        }
+    }
+}
+.line {
+    margin: 0 auto;
+    width: 80%;
+    height: 5px;
+    background-color: $dark-color;
+}
+.header_section {
+    display: flex;
+    align-items: center;
+    img {
+        width: 50px;
+        height: 50px;
+        margin-right: 20px;
+    }
+    h2 {
+        text-transform: uppercase;
+        display: inline-block;
+        vertical-align: top;
+        font-size: 2em;
+        font-weight: 500;
+        text-align: center;
+    }
+}
+.outer {
+    width: 80%;
+    padding: 20px 0 40px 70px;
+}
+.inner {
+    padding-top: 40px;
+    margin-left: 70px;
+    font-size: 1.5em;
+}
+.education {
+    .inner {
+        display: grid;
+        grid-template-columns: 20% 80%;
+        grid-template-rows: 1fr 1fr;
+        gap: 20px;
+        span {
+            font-weight: 900;
+        }
+    }
+}
+.research_int {
+    ul li {
+        list-style-type: disc;
+    }
+}
+h3 {
+    text-align: center;
+    font-size: 1em;
+    font-weight: bold;
+    text-transform: uppercase;
+}
