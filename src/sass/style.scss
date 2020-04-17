@@ -21,19 +21,28 @@ button {
     border: none;
     font-size: 2em;
     font-weight: 500;
+    outline: none;
     &:hover {
         background-color: $dark-color;
         color: #fff;
         cursor: pointer;
     }
 }
-ul li {
-    list-style-type: none;
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 nav ul{
     display: flex;
     align-items: center;
     justify-content: space-between;
+    li {
+        list-style-type: none;
+    }
 }
 .main {
     min-height: 600px;
@@ -43,6 +52,8 @@ nav ul{
         align-items: center;
         justify-content: center;
         .name {
+            animation-name: fadeIn;
+            animation-duration: 3s;
             text-align: right;
             margin-right: 10%;
             h1 {
@@ -58,15 +69,24 @@ nav ul{
             }
         }
         .photo_logos {
+            animation-name: fadeIn;
+            animation-duration: 3s;
             ul {
+                margin-top: 10px;
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
                 width: 300px;
-                li a img{
-                    width: 50px;
-                    height: 50px;
-                    opacity: .5;
+                li {
+                    list-style-type: none;
+                    a img{
+                        width: 50px;
+                        height: 50px;
+                        opacity: .5;
+                        &:hover {
+                            opacity: 1;
+                        }
+                    } 
                 }
             }
         }
@@ -96,43 +116,110 @@ nav ul{
         height: 50px;
         margin-right: 20px;
     }
-    h2 {
-        text-transform: uppercase;
-        display: inline-block;
-        vertical-align: top;
-        font-size: 2em;
-        font-weight: 500;
-        text-align: center;
-    }
+}
+h2 {
+    text-transform: uppercase;
+    display: inline-block;
+    vertical-align: top;
+    font-size: 2em;
+    font-weight: 500;
+    text-align: center;
+}
+.date {
+    text-align: center;
 }
 .outer {
+    margin: 0 auto;
     width: 80%;
-    padding: 20px 0 40px 70px;
+    padding: 20px 0 40px 0px;
 }
 .inner {
     padding-top: 40px;
     margin-left: 70px;
     font-size: 1.5em;
+    padding-top: 20px;
+}
+.grid {
+    display: grid;
+    grid-template-columns: 15% 85%;
+    grid-template-rows: 1fr;
+    gap: 20px;
+}
+span {
+    font-weight: 900;
+}
+.italic {
+    font-weight: 500;
+    font-style: italic;
 }
 .education {
     .inner {
-        display: grid;
-        grid-template-columns: 20% 80%;
         grid-template-rows: 1fr 1fr;
-        gap: 20px;
-        span {
-            font-weight: 900;
-        }
     }
 }
 .research_int {
-    ul li {
-        list-style-type: disc;
+    .inner {
+        margin-left: calc(15%+20p);
     }
 }
 h3 {
+    margin-top: 40px;
     text-align: center;
-    font-size: 1em;
+    font-size: 1.5em;
     font-weight: bold;
     text-transform: uppercase;
+}
+.lang_skills_refer{
+    display: flex;
+    justify-content: space-around;
+    align-items: top;
+    h2 {
+        text-align: center;
+        font-size: 1.5em;
+    }
+    p {
+        font-size: 1.5em;
+        line-height: 1.25;
+    }
+    &>div {
+        margin-top: 20px;
+        width: 40%;
+    }
+}
+footer {
+    height: 150px;
+    background-color: $dark-color;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    p {
+        color: #000;
+        text-decoration: none;
+        font-size: 2em;
+        text-align: center;
+    }
+    a {
+        color: #000;
+        text-decoration: none;
+        font-size: 2em;
+        text-align: center;
+        &:hover {
+            color: #fff;
+        }
+    }
+    .logos_wrapper {
+        li {
+            list-style-type: none;
+            display: inline-block;
+            a img{
+                margin-right: 20px;
+                width: 50px;
+                height: 50px;
+                opacity: .5;
+                &:hover {
+                    opacity: 1;
+                }
+            } 
+        }
+    }
 }

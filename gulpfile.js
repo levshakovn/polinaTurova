@@ -5,7 +5,7 @@ const prefixer = require('gulp-autoprefixer');
 const jsMinify = require('gulp-uglify');
 const htmlMinify = require('gulp-htmlmin');
 const imgMinify = require('gulp-imagemin');
-const browserSync = require('browser-sync');
+const browserSync = require('browser-sync').create();
 const babel = require("gulp-babel");
 
 const dist = "./dist/";
@@ -25,10 +25,11 @@ gulp.task('cssAll', () => {
         cascade: false
     }))
     .pipe(cssMinify({compatibility: 'ie8'}))
+    .pipe(gulp.dest('./src/css'))
     .pipe(gulp.dest(dist + 'css'))
-    .on('end', browserSync.reload);
+    .on('change', browserSync.reload);
 });
-// use babek and minify js and put to dist/js folder
+// use babel and minify js and put to dist/js folder
 gulp.task('jsAll', () => {
     return gulp.src('./src/js/*.js')
         .pipe(babel({
