@@ -4,6 +4,7 @@ $dark-color: #0082a1;
     font-family: 'Quicksand', sans-serif;
     margin: 0;
     padding: 0;
+    scroll-behavior: smooth;
 }
 body {
     background-color: $bg-color;
@@ -192,12 +193,6 @@ footer {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    p {
-        color: #000;
-        text-decoration: none;
-        font-size: 2em;
-        text-align: center;
-    }
     a {
         color: #000;
         text-decoration: none;
@@ -208,18 +203,38 @@ footer {
         }
     }
     .logos_wrapper {
-        li {
-            list-style-type: none;
-            display: inline-block;
-            a img{
-                margin-right: 20px;
-                width: 50px;
-                height: 50px;
-                opacity: .5;
-                &:hover {
-                    opacity: 1;
-                }
-            } 
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        p {
+            color: #000;
+            text-decoration: none;
+            font-size: 2em;
+            text-align: center;
+            display: block;
+        }
+        ul {
+            margin-top: 10px;
+            li {
+                list-style-type: none;
+                display: inline-block;
+                a img{
+                    margin-right: 20px;
+                    width: 50px;
+                    height: 50px;
+                    opacity: .5;
+                    &:hover {
+                        opacity: 1;
+                    }
+                } 
+            }
+        }
+    }
+    .attributes {
+        font-size: 1em;
+        a {
+            font-size: 1em;
         }
     }
 }
