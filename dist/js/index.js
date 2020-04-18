@@ -1,1 +1,1 @@
-"use strict";window.addEventListener("DOMContentLoaded",function(e){console.log("2414"),document.querySelector(".pdf").addEventListener("click",function(){location.href="CV.docx"})});
+"use strict";window.addEventListener("DOMContentLoaded",function(e){console.log("hslkdgklsg");var t=document.querySelector(".pdf"),n=document.querySelector(".menu"),o=document.querySelector(".lines");o.addEventListener("click",function(){n.classList.toggle("mobile"),o.classList.toggle("line_active")}),t.addEventListener("click",function(){location.href="CV.docx"})});

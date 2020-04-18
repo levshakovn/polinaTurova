@@ -14,20 +14,16 @@ const dist = "./dist/";
 gulp.task('htmlMinify', () => {
     return gulp.src('src/*.html')
       .pipe(htmlMinify({ collapseWhitespace: true }))
-      .pipe(gulp.dest(dist))
-      .pipe(browserSync.stream());
+      .pipe(gulp.dest(dist));
 });
 // compile scss to css, then prefixe it and minify and put to css folder in src
 gulp.task('cssAll', () => {
-    return gulp.src('./src/sass/*.scss', ['sass'])
-      .pipe(sass())
-      .pipe(prefixer({
-        cascade: false
-    }))
-    .pipe(cssMinify({compatibility: 'ie8'}))
-    .pipe(gulp.dest('./src/css'))
-    .pipe(gulp.dest(dist + 'css'))
-    .on('change', browserSync.reload);
+    return gulp.src('./src/sass/*.scss')
+        .pipe(sass({outputStyle: 'compressed'}))
+        .pipe(prefixer({
+            cascade: false
+        }))
+        .pipe(gulp.dest(dist + 'css'));
 });
 // use babel and minify js and put to dist/js folder
 gulp.task('jsAll', () => {
@@ -36,15 +32,13 @@ gulp.task('jsAll', () => {
             presets: ['@babel/preset-env']
         }))
         .pipe(jsMinify())
-        .pipe(gulp.dest(dist + 'js'))
-        .on('end', browserSync.reload);
+        .pipe(gulp.dest(dist + 'js'));
 });
 //minify img and put to dist/img folder
 gulp.task('imgMinify', () => {
     return gulp.src('./src/img/*')
         .pipe(imgMinify())
-        .pipe(gulp.dest(dist + 'img'))
-        .on('end', browserSync.reload);
+        .pipe(gulp.dest(dist + 'img'));
 });
 // copying logo folder to dist
 gulp.task('copyLogo', () => {
@@ -54,15 +48,14 @@ gulp.task('copyLogo', () => {
 
 gulp.task("watch", () => {
     browserSync.init({
-		server: "./dist/",
-		port: 4000,
-		notify: true
+		server: dist,
+		port: 4000
     });
     
-    gulp.watch("./src/index.html", gulp.parallel("htmlMinify"));
+    gulp.watch("./src/index.html").on('end', browserSync.reload);
     gulp.watch("./src/css/*.css", gulp.parallel("cssAll"));
-    gulp.watch("./src/js/*", gulp.parallel("jsAll"));
+    gulp.watch("./src/js/*").on('end', browserSync.reload);
 });
 
 gulp.task('build', gulp.parallel("htmlMinify", "cssAll", "jsAll", "imgMinify", "copyLogo"));
-gulp.task("default", gulp.parallel("watch", "build"));
+gulp.task("default", gulp.parallel('watch', 'build'));
