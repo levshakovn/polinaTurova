@@ -25,11 +25,6 @@ button {
     font-weight: 500;
     outline: none;
     padding: 0 10px;
-    &:hover {
-        background-color: $dark-color;
-        color: #fff;
-        cursor: pointer;
-    }
 }
 @keyframes fadeIn {
     from {
@@ -39,14 +34,11 @@ button {
         opacity: 1;
     }
 }
-nav ul{
+nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
     transition: 1s all;
-    li {
-        list-style-type: none;
-    }
 }
 .main {
     min-height: 600px;
@@ -87,9 +79,6 @@ nav ul{
                         width: 50px;
                         height: 50px;
                         opacity: .5;
-                        &:hover {
-                            opacity: 1;
-                        }
                     } 
                 }
             }
@@ -200,9 +189,6 @@ footer {
         text-decoration: none;
         font-size: 2em;
         text-align: center;
-        &:hover {
-            color: #fff;
-        }
     }
     .logos_wrapper {
         display: flex;
@@ -226,9 +212,6 @@ footer {
                     width: 50px;
                     height: 50px;
                     opacity: .5;
-                    &:hover {
-                        opacity: 1;
-                    }
                 } 
             }
         }
@@ -240,11 +223,29 @@ footer {
         }
     }
 }
+@media screen and (min-width: 900px) {
+    button:hover {
+        background-color: $dark-color;
+        color: #fff;
+        cursor: pointer;
+    }
+    .main .wrapper_name_photo .photo_logos ul li a img:hover,
+    .footer .logos_wrapper ul li a img:hover {
+        opacity: 1;
+    }
+    .footer a {
+        &:hover {
+            color: #fff;
+        }
+    }
+}
 @media screen and (max-width: 1400px) {
     button {
         margin-right: 30px;
+        font-size: 1.5em;
+        margin-right: 20px;
     }
-    nav ul {
+    nav {
         justify-content: center;
     }
     footer {
@@ -265,7 +266,7 @@ footer {
 }
 @media screen and (max-width: 900px) {
     button {
-        font-size: 1.5em;
+        font-size: 1em;
     }
     .main {
         .wrapper_name_photo {
@@ -292,30 +293,35 @@ footer {
 }
 @media screen and (max-width: 700px) {
     nav {
+        background-color: rgba(0,0,0, .8);
         .container {
             padding: 0;
             .menu {
-                background-color: rgba(0,0,0, .5);
+                width: 100%;
+                background-color: rgba(0,0,0, .8);
                 flex-direction: column;
                 position: absolute;
                 top: -100%;
                 left: 50%;
                 transform: translateX(-50%);
                 z-index: 1;
-                li {
-                    a {
-                        button {
-                            color: white;
-                            background-color: rgba(0,0,0, .5);
-                            padding: 20px 0;
-                            width: 300px;
-                            margin-right: 0;
-                            height: 100px;
-                            border-radius:0;
-                            font-size: 2em;
-                        }
+                transition: 1s all;
+                a {
+                    width: 100%;
+                    display: block;
+                    // background-color: rgba(0,0,0, .5);
+                    button {
+                        display: block;
+                        margin: 0 auto;
+                        color: white;
+                        background-color: rgba(0,0,0,0);
+                        // padding: 20px 0;
+                        width: 100%;
+                        height: 100px;
+                        border-radius:0;
+                        font-size: 2em;
                     }
-                } 
+                }
             }
         }
 
@@ -346,6 +352,7 @@ footer {
         margin-top: 0;
     }
     .lines {
+        z-index: 10;
         padding: 20px;
         height: 70px;
         padding-bottom: 0;
@@ -368,7 +375,7 @@ footer {
         transform: rotate(45deg) translateX(-10px);
     }
     nav .container .mobile {
-        top: 0;
+        top: 90px;
     }
     .inner_grid {
         display:flex;
